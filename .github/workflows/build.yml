@@ -21,7 +21,7 @@ jobs:
       
       - name: Build ISO
         run: |
-          cd custom-iso/gnome-calamares
+          
           mkarchiso -v iso
 
       - name: Upload ISO artifact (v4)
