@@ -33,21 +33,4 @@ jobs:
         with:
           name: archlinux.iso
           path: out/*.iso
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: frankos-${{ github.run_number }}
-          name: FrankOS Release ${{ github.run_number }}
-          body: |
-            自動ビルドされた FrankOS ISO のリリースです。
-            - ビルド番号: ${{ github.run_number }}
-            - ビルド日時: ${{ github.event.head_commit.timestamp }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload ISO to Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: out/*.iso
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
