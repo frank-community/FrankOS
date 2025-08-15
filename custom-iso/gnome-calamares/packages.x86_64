@@ -128,6 +128,8 @@ xl2tpd
 zsh
 gnome
 gdm
+plymouth
+
 
 qt5-base
 qt5-declarative

@@ -1,0 +1,1 @@
+qemu-system-x86_64 -m 2048 -cdrom FrankOS.iso -boot d  -smp 2 -vga virtio
