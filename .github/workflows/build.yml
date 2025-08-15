@@ -1,0 +1,35 @@
+name: Build Arch ISO
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    # Arch Linux 公式コンテナを使って最小限の環境を準備
+    runs-on: ubuntu-latest
+    container: archlinux:latest
+
+    steps:
+      - name: ソースをチェックアウト
+        uses: actions/checkout@v3
+
+      - name: pacman ミラー更新＆archiso のインストール
+        run: |
+          pacman -Sy --noconfirm archiso
+
+      
+
+      
+
+      - name: ISO をビルド
+        run: |
+          cd custom-iso/gnome-calamares
+          mkarchiso -v iso
+
+      - name: 完成した ISO をアップロード
+        uses: actions/upload-artifact@v3
+        with:
+          name: archlinux.iso
+          path: out/*.iso
